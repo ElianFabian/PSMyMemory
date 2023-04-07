@@ -48,12 +48,14 @@ class TargetLanguage : System.Management.Automation.IValidateSetValuesGenerator
 
     .OUTPUTS
     PSCustomObject
+    PSCustomObject[]
 
     .NOTES
     More information on https://mymemory.translated.net/doc/spec.php
 #>
 function Invoke-MyMemory
 {
+    [OutputType([PSCustomObject], [PSCustomObject[]])]
     param
     (
         [Alias('Query')]
