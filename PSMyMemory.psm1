@@ -1,15 +1,16 @@
 $global:languagesCsv = ConvertFrom-Csv -InputObject (Get-Content "$PSScriptRoot/Languages.csv" -Raw)
 
-$languageToCode = @{}
-$codeToLanguage = @{}
+$LanguageToCode = @{}
+$CodeToLanguage = @{}
+
 foreach ($row in $global:languagesCsv)
 {
-    $languageToCode[$row.Language] = $row.CountryLanguageCode
-    $codeToLanguage[$row.CountryLanguageCode] = $row.Language
+    $LanguageToCode[$row.Language] = $row.CountryLanguageCode
+    $CodeToLanguage[$row.CountryLanguageCode] = $row.Language
 
     $languageCode = $row.CountryLanguageCode.Split('-')[0]
 
-    $codeToLanguage[$languageCode] = $row.Language
+    $CodeToLanguage[$languageCode] = $row.Language
 }
 
 $global:pairOfSourceLanguageAndCode = $global:languagesCsv | ForEach-Object { $_.Language, $_.CountryLanguageCode }
@@ -99,16 +100,16 @@ function Invoke-MyMemory
     {
         return [PSCustomObject]@{
             SourceLanguage              = $sourceDetectedLanguage
-            SourceLanguageAsEnglishWord = $codeToLanguage[$sourceDetectedLanguage]
+            SourceLanguageAsEnglishWord = $CodeToLanguage[$sourceDetectedLanguage]
         }
     }
 
     return [PSCustomObject]@{
         Translation                 = $data.responseData.translatedText
         SourceLanguage              = $sourceDetectedLanguage
-        SourceLanguageAsEnglishWord = $codeToLanguage[$sourceDetectedLanguage]
+        SourceLanguageAsEnglishWord = $CodeToLanguage[$sourceDetectedLanguage]
         TargetCountry               = $targetLanguageCode
-        TargetLanguageAndCountry    = $codeToLanguage[$targetLanguageCode]
+        TargetLanguageAndCountry    = $CodeToLanguage[$targetLanguageCode]
 
         Matches = $data.matches | ForEach-Object {
 
@@ -119,11 +120,11 @@ function Invoke-MyMemory
                     Segment                     = $_.segment
                     Translation                 = $_.translation
                     SourceLanguage              = $splittedSourceLanguageCode
-                    SourceLanguageAsEnglishWord = $codeToLanguage[$splittedSourceLanguageCode]
+                    SourceLanguageAsEnglishWord = $CodeToLanguage[$splittedSourceLanguageCode]
                     SourceCountry               = $splittedSourceCountryCode
                     SourceLanguageAndCountry    = $_.source ? $_.source : ''
                     TargetLanguage              = $splittedTargetLanguageCode
-                    TargetLanguageAsEnglishWord = $codeToLanguage[$splittedTargetLanguageCode]
+                    TargetLanguageAsEnglishWord = $CodeToLanguage[$splittedTargetLanguageCode]
                     TargetCountry               = $splittedTargetCountryCode
                     TargetLanguageAndCountry    = $_.target
                 }
@@ -137,13 +138,13 @@ function TryConvertLanguageToCode([string] $SourceLanguage, [string] $TargetLang
 {
     $languageCodes = @($SourceLanguage, $TargetLanguage)
 
-    if ($languageToCode.ContainsKey($SourceLanguage))
+    if ($LanguageToCode.ContainsKey($SourceLanguage))
     {
-        $languageCodes[0] = $languageToCode[$SourceLanguage]
+        $languageCodes[0] = $LanguageToCode[$SourceLanguage]
     }
-    if ($languageToCode.ContainsKey($TargetLanguage))
+    if ($LanguageToCode.ContainsKey($TargetLanguage))
     {
-        $languageCodes[1] = $languageToCode[$TargetLanguage]
+        $languageCodes[1] = $LanguageToCode[$TargetLanguage]
     }
 
     return $languageCodes
