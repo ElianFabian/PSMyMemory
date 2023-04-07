@@ -1,153 +1,154 @@
-Language,CountryLanguageCode
-Autodetect,Autodetect
-Afrikaans,af-ZA
-Albanian,sq-AL
-Amharic,am-ET
-Arabic,ar-SA
-Armenian,hy-AM
-Azerbaijani,az-AZ
-Bajan,bjs-BB
-Balkan Gipsy,rm-RO
-Basque,eu-ES
-Bemba,bem-ZM
-Bengali,bn-IN
-Bielarus,be-BY
-Bislama,bi-VU
-Bosnian,bs-BA
-Breton,br-FR
-Bulgarian,bg-BG
-Burmese,my-MM
-Catalan,ca-ES
-Cebuano,cb-PH
-Chamorro,ch-GU
-Chinese (Simplified),zh-CN
-Chinese Traditional,zh-TW
-Comorian (Ngazidja),zdj-KM
-Coptic,cop-EG
-Creole English (Antigua and Barbuda),aig-AG
-Creole English (Bahamas),bah-BS
-Creole English (Grenadian),gcl-GD
-Creole English (Guyanese),gyn-GY
-Creole English (Jamaican),jam-JM
-Creole English (Vincentian),svc-VC
-Creole English (Virgin Islands),vic-US
-Creole French (Haitian),ht-HT
-Creole French (Saint Lucian),acf-LC
-Creole French (Seselwa),crs-SC
-Creole Portuguese (Upper Guinea),pov-GW
-Croatian,hr-HR
-Czech,cs-CZ
-Danish,da-DK
-Dutch,nl-NL
-Dzongkha,dz-BT
-English,en-GB
-Esperanto,eo-EU
-Estonian,et-EE
-Fanagalo,fn-FNG
-Faroese,fo-FO
-Finnish,fi-FI
-French,fr-FR
-Galician,gl-ES
-Georgian,ka-GE
-German,de-DE
-Greek,el-GR
-Greek (Classical),grc-GR
-Gujarati,gu-IN
-Hausa,ha-NE
-Hawaiian,haw-US
-Hebrew,he-IL
-Hindi,hi-IN
-Hungarian,hu-HU
-Icelandic,is-IS
-Indonesian,id-ID
-Inuktitut (Greenlandic),kl-GL
-Irish Gaelic,ga-IE
-Italian,it-IT
-Japanese,ja-JP
-Javanese,jv-ID
-Kabuverdianu,kea-CV
-Kabylian,kab-DZ
-Kannada,kn-IN
-Kazakh,kk-KZ
-Khmer,km-KM
-Kinyarwanda,rw-RW
-Kirundi,rn-BI
-Korean,ko-KR
-Kurdish,ku-TR
-Kurdish Sorani,ckb-IQ
-Kyrgyz,ky-KG
-Lao,lo-LA
-Latin,la-VA
-Latvian,lv-LV
-Lithuanian,lt-LT
-Luxembourgish,lb-LU
-Macedonian,mk-MK
-Malagasy,mg-MG
-Malay,ms-MY
-Maldivian,dv-MV
-Maltese,mt-MT
-Manx Gaelic,gv-IM
-Maori,mi-NZ
-Marshallese,mh-MH
-Mende,men-SL
-Mongolian,mn-MN
-Morisyen,mfe-MU
-Nepali,ne-NP
-Niuean,niu-NU
-Norwegian,no-NO
-Nyanja,ny-MW
-Pakistani,ur-PK
-Palauan,pau-PW
-Panjabi,pa-IN
-Papiamentu,pap-CW
-Pashto,ps-PK
-Persian,fa-IR
-Pijin,pis-SB
-Polish,pl-PL
-Portuguese,pt-PT
-Potawatomi,pot-US
-Quechua,qu-PE
-Romanian,ro-RO
-Russian,ru-RU
-Samoan,sm-WS
-Sango,sg-CF
-Scots Gaelic,gd-GB
-Serbian,sr-RS
-Shona,sn-ZW
-Sinhala,si-LK
-Slovak,sk-SK
-Slovenian,sl-SI
-Somali,so-SO
-Sotho, Southern,st-ST
-Spanish,es-ES
-Sranan Tongo,srn-SR
-Swahili,sw-SZ
-Swedish,sv-SE
-Swiss German,de-CH
-Syriac (Aramaic),syc-TR
-Tagalog,tl-PH
-Tajik,tg-TJ
-Tamashek (Tuareg),tmh-DZ
-Tamil,ta-LK
-Telugu,te-IN
-Tetum,tet-TL
-Thai,th-TH
-Tibetan,bo-CN
-Tigrinya,ti-TI
-Tok Pisin,tpi-PG
-Tokelauan,tkl-TK
-Tongan,to-TO
-Tswana,tn-BW
-Turkish,tr-TR
-Turkmen,tk-TM
-Tuvaluan,tvl-TV
-Ukrainian,uk-UA
-Uma,ppk-ID
-Uzbek,uz-UZ
-Vietnamese,vi-VN
-Wallisian,wls-WF
-Welsh,cy-GB
-Wolof,wo-SN
-Xhosa,xh-ZA
-Yiddish,yi-YD
-Zulu,zu-ZA
+Language,CountryLanguageCode,LanguageCode
+Autodetect,Autodetect,Autodetect
+Afrikaans,af-ZA,af
+Albanian,sq-AL,sq
+Amharic,am-ET,am
+Arabic,ar-SA,ar
+Armenian,hy-AM,hy
+Azerbaijani,az-AZ,az
+Bajan,bjs-BB,bjs
+Balkan Gipsy,rm-RO,rm
+Basque,eu-ES,eu
+Bemba,bem-ZM,bem
+Bengali,bn-IN,bn
+Bielarus,be-BY,be
+Bislama,bi-VU,bi
+Bosnian,bs-BA,bs
+Breton,br-FR,br
+Bulgarian,bg-BG,bg
+Burmese,my-MM,my
+Catalan,ca-ES,ca
+Cebuano,cb-PH,cb
+Chamorro,ch-GU,ch
+Chinese (Simplified),zh-CN,zh
+Chinese (Traditional),zh-TW,zh
+Chinese,zh-CN,zh
+Comorian (Ngazidja),zdj-KM,zdj
+Coptic,cop-EG,cop
+Creole English (Antigua and Barbuda),aig-AG,aig
+Creole English (Bahamas),bah-BS,bah
+Creole English (Grenadian),gcl-GD,gcl
+Creole English (Guyanese),gyn-GY,gyn
+Creole English (Jamaican),jam-JM,jam
+Creole English (Vincentian),svc-VC,svc
+Creole English (Virgin Islands),vic-US,vic
+Creole French (Haitian),ht-HT,ht
+Creole French (Saint Lucian),acf-LC,acf
+Creole French (Seselwa),crs-SC,crs
+Creole Portuguese (Upper Guinea),pov-GW,pov
+Croatian,hr-HR,hr
+Czech,cs-CZ,cs
+Danish,da-DK,da
+Dutch,nl-NL,nl
+Dzongkha,dz-BT,dz
+English,en-GB,en
+Esperanto,eo-EU,eo
+Estonian,et-EE,et
+Fanagalo,fn-FNG,fn
+Faroese,fo-FO,fo
+Finnish,fi-FI,fi
+French,fr-FR,fr
+Galician,gl-ES,gl
+Georgian,ka-GE,ka
+German,de-DE,de
+Greek,el-GR,el
+Greek (Classical),grc-GR,grc
+Gujarati,gu-IN,gu
+Hausa,ha-NE,ha
+Hawaiian,haw-US,haw
+Hebrew,he-IL,he
+Hindi,hi-IN,hi
+Hungarian,hu-HU,hu
+Icelandic,is-IS,is
+Indonesian,id-ID,id
+Inuktitut (Greenlandic),kl-GL,kl
+Irish Gaelic,ga-IE,ga
+Italian,it-IT,it
+Japanese,ja-JP,ja
+Javanese,jv-ID,jv
+Kabuverdianu,kea-CV,kea
+Kabylian,kab-DZ,kab
+Kannada,kn-IN,kn
+Kazakh,kk-KZ,kk
+Khmer,km-KM,km
+Kinyarwanda,rw-RW,rw
+Kirundi,rn-BI,rn
+Korean,ko-KR,ko
+Kurdish,ku-TR,ku
+Kurdish Sorani,ckb-IQ,ckb
+Kyrgyz,ky-KG,ky
+Lao,lo-LA,lo
+Latin,la-VA,la
+Latvian,lv-LV,lv
+Lithuanian,lt-LT,lt
+Luxembourgish,lb-LU,lb
+Macedonian,mk-MK,mk
+Malagasy,mg-MG,mg
+Malay,ms-MY,ms
+Maldivian,dv-MV,dv
+Maltese,mt-MT,mt
+Manx Gaelic,gv-IM,gv
+Maori,mi-NZ,mi
+Marshallese,mh-MH,mh
+Mende,men-SL,men
+Mongolian,mn-MN,mn
+Morisyen,mfe-MU,mfe
+Nepali,ne-NP,ne
+Niuean,niu-NU,niu
+Norwegian,no-NO,no
+Nyanja,ny-MW,ny
+Pakistani,ur-PK,ur
+Palauan,pau-PW,pau
+Panjabi,pa-IN,pa
+Papiamentu,pap-CW,pap
+Pashto,ps-PK,ps
+Persian,fa-IR,fa
+Pijin,pis-SB,pis
+Polish,pl-PL,pl
+Portuguese,pt-PT,pt
+Potawatomi,pot-US,pot
+Quechua,qu-PE,qu
+Romanian,ro-RO,ro
+Russian,ru-RU,ru
+Samoan,sm-WS,sm
+Sango,sg-CF,sg
+Scots Gaelic,gd-GB,gd
+Serbian,sr-RS,sr
+Shona,sn-ZW,sn
+Sinhala,si-LK,si
+Slovak,sk-SK,sk
+Slovenian,sl-SI,sl
+Somali,so-SO,so
+Sotho Southern,st-ST,st
+Spanish,es-ES,es
+Sranan Tongo,srn-SR,srn
+Swahili,sw-SZ,sw
+Swedish,sv-SE,sv
+Swiss German,de-CH,de
+Syriac (Aramaic),syc-TR,syc
+Tagalog,tl-PH,tl
+Tajik,tg-TJ,tg
+Tamashek (Tuareg),tmh-DZ,tmh
+Tamil,ta-LK,ta
+Telugu,te-IN,te
+Tetum,tet-TL,tet
+Thai,th-TH,th
+Tibetan,bo-CN,bo
+Tigrinya,ti-TI,ti
+Tok Pisin,tpi-PG,tpi
+Tokelauan,tkl-TK,tkl
+Tongan,to-TO,to
+Tswana,tn-BW,tn
+Turkish,tr-TR,tr
+Turkmen,tk-TM,tk
+Tuvaluan,tvl-TV,tvl
+Ukrainian,uk-UA,uk
+Uma,ppk-ID,ppk
+Uzbek,uz-UZ,uz
+Vietnamese,vi-VN,vi
+Wallisian,wls-WF,wls
+Welsh,cy-GB,cy
+Wolof,wo-SN,wo
+Xhosa,xh-ZA,xh
+Yiddish,yi-YD,yi
+Zulu,zu-ZA,zu

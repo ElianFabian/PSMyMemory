@@ -7,10 +7,7 @@ foreach ($row in $global:languagesCsv)
 {
     $LanguageToCode[$row.Language] = $row.CountryLanguageCode
     $CodeToLanguage[$row.CountryLanguageCode] = $row.Language
-
-    $languageCode = $row.CountryLanguageCode.Split('-')[0]
-
-    $CodeToLanguage[$languageCode] = $row.Language
+    $CodeToLanguage[$row.LanguageCode] = $row.Language
 }
 
 $global:pairOfSourceLanguageAndCode = $global:languagesCsv | ForEach-Object { $_.Language, $_.CountryLanguageCode }
@@ -46,6 +43,9 @@ class TargetLanguage : System.Management.Automation.IValidateSetValuesGenerator
     .PARAMETER TargetLanguage
     Target language as code or English word.
 
+    .PARAMETER AvailableLanguages
+    Return an array with all the available languages with the English name and country-language code.
+
     .OUTPUTS
     PSCustomObject
 
@@ -58,31 +58,42 @@ function Invoke-MyMemory
     (
         [Alias('Query')]
         [ValidateLength(1, 500)]
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$true, ParameterSetName='Translation')]
         [string] $InputObject,
 
         [Alias('From')]
         [ValidateSet([SourceLanguage])]
+        [Parameter(ParameterSetName='Translation')]
         [string] $SourceLanguage = 'Autodetect',
 
         [Alias('To')]
         [ValidateSet([TargetLanguage])]
+        [Parameter(ParameterSetName='Translation')]
         [string] $TargetLanguage,
 
         [ValidateSet('Translation', 'DetectedLanguage')]
-        [string] $ReturnType = 'Translation'
+        [Parameter(ParameterSetName='Translation')]
+        [string] $ReturnType = 'Translation',
+
+        [Parameter(ParameterSetName='AvailableLanguages')]
+        [switch] $AvailableLanguages
     )
+
+    if ($AvailableLanguages)
+    {
+        return $global:languagesCsv
+    }
 
     if ($ReturnType -in $ListOfReturnTypeThatTheTargetLanguageIsRequired -and -not $TargetLanguage)
     {
         Write-Error "You must specify a the TargetLanguage if the ReturnType is '$ReturnType'."
     }
 
-    $sourceLanguageCode, $targetLanguageCode = TryConvertLanguageToCode $SourceLanguage $TargetLanguage
+    $sourceLanguageCode, $targetCountryLanguageCode = TryConvertLanguageToCode $SourceLanguage $TargetLanguage
 
     $query = [uri]::EscapeDataString($InputObject)
 
-    $uri = "https://api.mymemory.translated.net/get?q=$query&langpair=$sourceLanguageCode|$targetLanguageCode"
+    $uri = "https://api.mymemory.translated.net/get?q=$query&langpair=$sourceLanguageCode|$targetCountryLanguageCode"
 
     $response = Invoke-WebRequest -Uri $uri -Method Get
 
@@ -94,22 +105,24 @@ function Invoke-MyMemory
 
     $sourceLanguageAndCountryCodes = $detectedLanguage ? $detectedLanguage : $sourceLanguageCode
 
-    $sourceDetectedLanguage, $sourceDetectedCountry = $sourceLanguageAndCountryCodes.Split('-')
+    $actualSourceLanguage, $actualSourceCountry = $sourceLanguageAndCountryCodes.Split('-')
 
     if ($ReturnType -eq 'DetectedLanguage')
     {
         return [PSCustomObject]@{
-            SourceLanguage              = $sourceDetectedLanguage
-            SourceLanguageAsEnglishWord = $CodeToLanguage[$sourceDetectedLanguage]
+            SourceLanguage              = $actualSourceLanguage
+            SourceLanguageAsEnglishWord = $CodeToLanguage[$actualSourceLanguage]
         }
     }
 
     return [PSCustomObject]@{
         Translation                 = $data.responseData.translatedText
-        SourceLanguage              = $sourceDetectedLanguage
-        SourceLanguageAsEnglishWord = $CodeToLanguage[$sourceDetectedLanguage]
-        TargetCountry               = $targetLanguageCode
-        TargetLanguageAndCountry    = $CodeToLanguage[$targetLanguageCode]
+        SourceLanguage              = $actualSourceLanguage
+        SourceCountry               = $actualSourceCountry
+        SourceCountryLanguage       = $sourceLanguageAndCountryCodes
+        SourceLanguageAsEnglishWord = $CodeToLanguage[$actualSourceLanguage]
+        TargetCountryLanguage       = $targetCountryLanguageCode
+        TargetLanguageAsEnglishWord = $CodeToLanguage[$targetCountryLanguageCode]
 
         Matches = $data.matches | ForEach-Object {
 
