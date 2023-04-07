@@ -1,23 +1,23 @@
-$global:languagesCsv = ConvertFrom-Csv -InputObject (Get-Content "$PSScriptRoot/Languages.csv" -Raw)
+$script:LanguagesCsv = ConvertFrom-Csv -InputObject (Get-Content "$PSScriptRoot/Languages.csv" -Raw)
 
 $LanguageToCode = @{}
 $CodeToLanguage = @{}
 
-foreach ($row in $global:languagesCsv)
+foreach ($row in $script:LanguagesCsv)
 {
     $LanguageToCode[$row.Language] = $row.CountryLanguageCode
     $CodeToLanguage[$row.CountryLanguageCode] = $row.Language
     $CodeToLanguage[$row.LanguageCode] = $row.Language
 }
 
-$global:pairOfSourceLanguageAndCode = $global:languagesCsv | ForEach-Object { $_.Language, $_.CountryLanguageCode }
-$global:pairOfTargetLanguageAndCode = $global:languagesCsv | Where-Object { $_.CountryLanguageCode -ne 'Autodetect' } | ForEach-Object { $_.Language, $_.CountryLanguageCode } 
+$script:PairOfSourceLanguageAndCode = $script:LanguagesCsv | ForEach-Object { $_.Language, $_.CountryLanguageCode }
+$script:PairOfTargetLanguageAndCode = $script:LanguagesCsv | Where-Object { $_.CountryLanguageCode -ne 'Autodetect' } | ForEach-Object { $_.Language, $_.CountryLanguageCode } 
 
 class SourceLanguage : System.Management.Automation.IValidateSetValuesGenerator
 {
     [String[]] GetValidValues()
     {
-        return $global:pairOfSourceLanguageAndCode
+        return $script:PairOfSourceLanguageAndCode
     }
 }
 
@@ -25,7 +25,7 @@ class TargetLanguage : System.Management.Automation.IValidateSetValuesGenerator
 {
     [String[]] GetValidValues()
     {
-        return $global:pairOfTargetLanguageAndCode
+        return $script:PairOfTargetLanguageAndCode
     }
 }
 
@@ -83,7 +83,7 @@ function Invoke-MyMemory
 
     if ($AvailableLanguages)
     {
-        return $global:languagesCsv
+        return $script:LanguagesCsv
     }
 
     if ($ReturnType -in $ListOfReturnTypeThatTheTargetLanguageIsRequired -and -not $TargetLanguage)
