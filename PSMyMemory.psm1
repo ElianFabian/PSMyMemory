@@ -125,6 +125,7 @@ function Invoke-MyMemory
         SourceLanguageAsEnglishWord = $CodeToLanguage[$actualSourceLanguage]
         TargetCountryLanguage       = $targetCountryLanguageCode
         TargetLanguageAsEnglishWord = $CodeToLanguage[$targetCountryLanguageCode]
+        IsQuotaFinished             = $data.quotaFinished
 
         Matches = $data.matches | ForEach-Object {
 
